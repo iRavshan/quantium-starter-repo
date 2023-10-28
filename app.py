@@ -1,40 +1,21 @@
-from dash import Dash, dcc, html
+from dash import Dash, html, dcc, Input, Output, callback
 import plotly.express as px
 import pandas as pd
 
+df = pd.read_csv("./output/output.csv")
+df = df.sort_values(by="date")
+
 app = Dash(__name__)
 
-colors = {
-    'background': '#111111',
-    'text': '#7FDBFF'
-}
+fig = px.line(df, x="date", y="sales", title="Pink Morsel Sales")
 
-df = pd.read_csv("output/output.csv")
-
-fig = px.bar(df, x="region", y="sales", color="date", barmode="group")
-
-fig.update_layout(
-    plot_bgcolor=colors['background'],
-    paper_bgcolor=colors['background'],
-    font_color=colors['text']
-)
-
-app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
-    html.H1(
-        children='Hello Dash',
-        style={
-            'textAlign': 'center',
-            'color': colors['text']
-        }
-    ),
-
-    html.Div(children='Dash: A web application framework for your data.', style={
-        'textAlign': 'center',
-        'color': colors['text']
-    }),
+app.layout = html.Div(children=[
+    html.H1(children='''
+        Analysing the increase in the Pink Morsel price
+    '''),
 
     dcc.Graph(
-        id='example-graph-2',
+        id='visualization',
         figure=fig
     )
 ])
