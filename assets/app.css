@@ -1,0 +1,101 @@
+.app-container{
+    margin: 3% 5%;
+}
+
+.app-header{
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.app-header-title{
+    letter-spacing: .23rem; 
+    font-size: 2rem;
+    line-height: 1.35;
+    margin: 1.2rem 0;
+    font-weight: 400; 
+}
+
+.app-header-subtitle{
+    color: #c4cdd5;
+}
+
+.app-menu-img {
+    height: 50px;
+    width: auto;
+}
+
+.app-content {
+    display: flex;
+    margin-top: 20px;
+}
+
+.sales-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 0.55rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+}
+
+.column, .columns {
+    float: left;
+    box-sizing: border-box;
+}
+
+.chart-title{
+    color: #082255!important;
+    letter-spacing: .3rem!important;
+    padding: 25px 41px 0;
+    margin-bottom: 0!important;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.radio-items{
+    padding: 18px 25px 0px 25px;
+}
+
+.radio-items label{
+    margin: 0 10px;
+}
+
+.radio-items-on-chart{
+    padding: 18px 25px 0px 25px;
+}
+
+.radio-items-on-chart label{
+    margin: 0 7px;
+}
+
+.sum-chart{
+    margin-left: 15px;
+}
+
+.graph-container {
+    background-color: #fff;
+    border-radius: 0.55rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+}
+
+.js-plotly-plot .plotly .main-svg {
+    border-radius: 0.55rem;
+}
+
+.first {
+    margin-bottom: 15px;
+}
+
+@media (min-width: 550px){
+    .two-thirds.column {
+        width: 65.3333333333%;
+    }
+
+    .column:first-child, .columns:first-child {
+        margin-left: 0;
+    }
+
+    .one-third.column {
+        width: 30.6666666667%;
+    }
+}

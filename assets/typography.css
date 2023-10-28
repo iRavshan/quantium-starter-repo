@@ -3,9 +3,31 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #061E44;
+    line-height: 1.6;
+    font-weight: 400;
     font-family: 'Raleway', sans-serif;
 }
     
 h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 300;
     color:#fff;
+}
+
+h4 {
+    font-size: 2.6rem;
+    line-height: 1.35;
+    letter-spacing: -.08rem;
+    margin-bottom: 1.2rem;
+    margin-top: 1.2rem;
+}
+
+p {
+    margin-top: 0;
+}
+
+p, ul, ol  {
+    margin-bottom: 0.75rem;
 }
