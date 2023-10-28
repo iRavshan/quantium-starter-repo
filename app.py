@@ -6,11 +6,15 @@ df = pd.read_csv("./output/output.csv")
 df = df.sort_values(by="date")
 
 
+external_stylesheets = [
+    "https://github.com/iRavshan/quantium-starter-repo/blob/main/assets/typography.css"
+]
+
+
 app = Dash(
     __name__,
-    assets_external_path="/assets/typography.css"
+    external_stylesheets=external_stylesheets
 )
-app.scripts.config.serve_locally = False
 
 fig = px.line(df, x="date", y="sales", title="Pink Morsel Sales")
 visualization = dcc.Graph(
