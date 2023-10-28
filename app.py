@@ -31,6 +31,7 @@ subtitle = html.P(
 
 header = html.Div(
     className="app-header",
+    id="header",
     children=[
         html.Div(
             className="app-header-desc",
@@ -55,7 +56,8 @@ def generate_figure(chart_data):
     return line_chart
 
 visualization = dcc.Graph(
-    figure=generate_figure(df)
+    figure=generate_figure(df),
+    id="visualization"
 )
 
 def generate_sum_figure(chart_data):
