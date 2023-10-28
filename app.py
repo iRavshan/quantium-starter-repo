@@ -5,20 +5,51 @@ import pandas as pd
 df = pd.read_csv("./output/output.csv")
 df = df.sort_values(by="date")
 
-app = Dash(__name__)
+
+app = Dash(
+    __name__,
+    assets_external_path="/assets/typography.css"
+)
+app.scripts.config.serve_locally = False
 
 fig = px.line(df, x="date", y="sales", title="Pink Morsel Sales")
+visualization = dcc.Graph(
+    figure=fig,
+    id="visualization"
+)
 
-app.layout = html.Div(children=[
-    html.H1(children='''
-        Analysing the increase in the Pink Morsel price
-    '''),
+header = html.H4(
+    "Pink Morsel Visualizer",
+    id="header"
+)
 
-    dcc.Graph(
-        id='visualization',
-        figure=fig
-    )
-])
+subtitle = html.H6(
+    "This app continually queries a SQL database and displays live charts of wind speed and wind direction.",
+    id="subtitle"
+)
+
+region_picker = dcc.RadioItems(
+    ["north", "east", "south", "west", "all"],
+    "north",
+    id="region_picker",
+    inline=True
+)
+
+region_picker_wrapper = html.Div(
+    [
+        region_picker
+    ]
+)
+
+
+app.layout = html.Div(
+    [
+        header,
+        subtitle,
+        region_picker_wrapper,
+        visualization
+    ]
+)
 
 if __name__ == '__main__':
     app.run(debug=True)
